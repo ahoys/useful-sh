@@ -1,7 +1,7 @@
 #!/bin/bash
 # Use this script as a LinuxGSM Master middleware.
 # Remember to create ~/.linuxgmm_mw_arma3server_mods file. Read the README.md.
-
+shopt -s globstar
 COMMAND="${1}"
 USERNAME=""
 PASSWORD=""
@@ -29,5 +29,6 @@ cat .linuxgmm_mw_arma3server_mods | { while read line
   done
   echo "Instructed to update mods.";
   ${PATH_TO_SWCD} ${COLLECTION_ID} ${USERNAME} ${PASSWORD} "107410"
+  mv ~/serverfiles/mods/**/*.bikey ~/serverfiles/keys
 }
 exit 0;
