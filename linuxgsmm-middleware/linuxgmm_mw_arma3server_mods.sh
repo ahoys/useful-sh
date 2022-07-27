@@ -7,6 +7,7 @@ USERNAME=""
 PASSWORD=""
 COLLECTION_ID=""
 PATH_TO_SWCD=""
+PATH_TO_CFG=""
 i=0
 if [ $COMMAND != "start" ] && [ $COMMAND != "update" ]
 then exit 0
@@ -25,10 +26,34 @@ cat .linuxgmm_mw_arma3server_mods | { while read line
     if [ $i == "0000" ]
     then PATH_TO_SWCD=$line
     fi
+    if [ $i == "00000" ]
+    then PATH_TO_CFG=$line
+    fi
     i="${i}0"
   done
   echo "Instructed to update mods.";
+  # Download/verify the mods.
   ${PATH_TO_SWCD} ${COLLECTION_ID} ${USERNAME} ${PASSWORD} "107410"
+  # Move the keys.
   mv ~/serverfiles/mods/**/*.bikey ~/serverfiles/keys
+  # Update the linuxgsmm-config.
+  mods=""
+  skip=1
+  test -e ~/.wsmctemp_ids || echo "You need to execute swcd.sh first."
+  cat ~/.wsmctemp_ids | { while read line
+    do
+      if [ $skip == 0 ]
+      then
+        mods="${mods}mods/steamapps/workshop/content/107410/${line};"
+      else
+        skip=0
+      fi
+    done
+    rm -rf "${PATH_TO_CFG}_temp"
+    grep -v '^mods=' ${PATH_TO_CFG} >> "${PATH_TO_CFG}_temp"
+    echo "mods=\"${mods}\"" >> "${PATH_TO_CFG}_temp"
+    mv "${PATH_TO_CFG}_temp" ${PATH_TO_CFG}
+    rm -rf "${PATH_TO_CFG}_temp"
+  }
 }
 exit 0;

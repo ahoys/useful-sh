@@ -4,7 +4,7 @@ Various scripts for extending linuxgsmm.
 
 ## linuxgmm_mw_arma3server_mods..sh
 
-Installs or updates the server mods dictated by a Steam Workshop collection.
+Installs or updates the server mods dictated by a Steam Workshop collection. Automatically appends your configs with the mods and moves the .bikey -keys.
 
 ### How to setup
 
@@ -20,7 +20,8 @@ Installs or updates the server mods dictated by a Steam Workshop collection.
 Steam username
 Steam password # Note that some passwords require escaping special letters, for example to escape ! you add \!
 Collection id
-Full path to swcd.sh
+Full path to swcd.sh (steam-workshop-collection-downloader)
+Full path to arma3server.cfg (your server configuration .cfg, usually ~/lgsm/config-lgsm/arma3server/arma3server.cfg)
 ```
 
 **The correct order of the items is crucial.**
