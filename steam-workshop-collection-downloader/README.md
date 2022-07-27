@@ -2,6 +2,9 @@
 
 Used with LinuxGSM to automatically download all mods in a Steam Workshop collection.
 
+### Requirements
+- The LinuxGSM server must be installed first OR install steamcmd manually.
+
 ## Usage
 
 1. Place in the LinuxGSM user root. I.e. /home/arma3server
@@ -22,3 +25,7 @@ Used with LinuxGSM to automatically download all mods in a Steam Workshop collec
 346347
 456356
 ```
+
+## Possible issues & solutions
+
+- SteamCMD requiring 2FA. If your steamcmd instance won't install anything, make sure you don't have a 2FA verification pending in your email.
