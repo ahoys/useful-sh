@@ -9,8 +9,8 @@ STEAM_PASSWORD="${3}" # Steam password.
 GAME_ID="${4}" # Game's id (not server build but game, the mods are for the game).
 MANUAL_MODS_FILE="${5}" # Instead of a collection, input the mod-ids manually. One line, one id.
 DIR_MODS=~/serverfiles/mods
-TEMP_COLLECTION=~/.wsmctemp_collection
-TEMP_IDS=~/.wsmctemp_ids
+TEMP_COLLECTION=~/.swcdtemp_collection
+TEMP_IDS=~/.swcdtemp_ids
 # Clear previous temp-files.
 test -e "${TEMP_COLLECTION}" && rm -rf "${TEMP_COLLECTION}"
 test -e "${TEMP_IDS}" && rm -rf "${TEMP_IDS}"
