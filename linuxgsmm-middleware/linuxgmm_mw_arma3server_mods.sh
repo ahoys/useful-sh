@@ -39,8 +39,8 @@ cat .linuxgmm_mw_arma3server_mods | { while read line
   # Update the linuxgsmm-config.
   mods=""
   skip=1
-  test -e ~/.wsmctemp_ids || echo "You need to execute swcd.sh first."
-  cat ~/.wsmctemp_ids | { while read line
+  test -e ~/.swcdtemp_ids || echo "You need to execute swcd.sh first."
+  cat ~/.swcdtemp_ids | { while read line
     do
       if [ $skip == 0 ]
       then
