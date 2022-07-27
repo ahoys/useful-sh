@@ -3,7 +3,7 @@
 Used with LinuxGSM to automatically download all mods in a Steam Workshop collection.
 
 ### Requirements
-- The LinuxGSM server must be installed first OR install steamcmd manually.
+- SteamCMD must be installed (included in LinuxGSM installation).
 
 ## Usage
 
